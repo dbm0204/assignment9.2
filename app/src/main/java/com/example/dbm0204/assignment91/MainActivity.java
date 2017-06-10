@@ -1,10 +1,6 @@
 package com.example.dbm0204.assignment91;
-
-import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -13,16 +9,17 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static TextView text;
     private static Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        text=(TextView) findViewById(R.id.text);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initToolBar();
+        text=(TextView) findViewById(R.id.text);
+
     }
 
     public void initToolBar(){
@@ -48,20 +45,23 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item){
         switch (item.getItemId()) {
             case R.id.red:
-                text.setTextColor(Color.RED);
+                text.setTextColor(Color.parseColor("red"));
                 Toast.makeText(getApplicationContext(),"Red Selected", Toast.LENGTH_LONG).show();
                 return true;
             case R.id.blue:
-                text.setTextColor(Color.BLUE);
+                text.setTextColor(Color.parseColor("blue"));
                 Toast.makeText(getApplicationContext(),"Blue Selected",Toast.LENGTH_LONG).show();
                 return true;
             case R.id.green:
-                text.setTextColor(Color.GREEN);
+                text.setTextColor(Color.parseColor("green"));
                 Toast.makeText(getApplicationContext(),"Green Selected",Toast.LENGTH_LONG).show();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
+    @Override
+    public void onClick(View view) {
 
+    }
 }
